@@ -24,7 +24,7 @@ const path = require('path');
 const THEME_ROOT_DIRECTORY = './src';
 const CLASS_MAP = 'Changes.txt'
 
-const classChangeList = fs.readFileSync(`${CLASS_MAP}`, 'utf8');
+const classChangeList = fs.readFileSync(CLASS_MAP, 'utf8');
 const lines = classChangeList.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
 
 const classes = {};
@@ -44,7 +44,7 @@ const getAllFiles = function(dirPath, fileList = []) {
     return fileList;
 }
 
-const fileArray = getAllFiles(`${THEME_ROOT_DIRECTORY}`);
+const fileArray = getAllFiles(THEME_ROOT_DIRECTORY);
 
 for (const file of fileArray) {
     fs.readFile(file, 'utf8', function (err, data) {
